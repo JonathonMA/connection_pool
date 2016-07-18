@@ -51,7 +51,9 @@ class ConnectionPool
   #
   # @!visibility private
   GLOBAL_MONOTONIC_CLOCK = class_definition.new
-  private_constant :GLOBAL_MONOTONIC_CLOCK
+  if RUBY_VERSION >= "1.9.3"
+    private_constant :GLOBAL_MONOTONIC_CLOCK
+  end
 
   class << self
     ##
