@@ -18,4 +18,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'bundler'
   s.add_development_dependency 'minitest', '>= 5.0.0'
   s.add_development_dependency 'rake'
+
+  s.add_dependency 'blankslate' if RUBY_VERSION < '1.9'
 end

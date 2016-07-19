@@ -1,3 +1,4 @@
+require 'blankslate' if RUBY_VERSION < '1.9'
 require 'connection_pool/version'
 require 'connection_pool/timed_stack'
 
@@ -120,7 +121,7 @@ end
     ::Thread.current[@key] ||= []
   end
 
-  class Wrapper < (RUBY_VERSION < '1.9' ? ::Object : ::BasicObject)
+  class Wrapper < (RUBY_VERSION < '1.9' ? ::BlankSlate : ::BasicObject)
     METHODS = [:with, :pool_shutdown]
 
     def initialize(options = {}, &block)
