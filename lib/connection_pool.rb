@@ -120,7 +120,7 @@ end
     ::Thread.current[@key] ||= []
   end
 
-  class Wrapper < ::BasicObject
+  class Wrapper < (RUBY_VERSION < '1.9' ? ::Object : ::BasicObject)
     METHODS = [:with, :pool_shutdown]
 
     def initialize(options = {}, &block)
